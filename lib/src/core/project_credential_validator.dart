@@ -12,23 +12,23 @@ class ProjectCredentialValidator {
   }) async {
     assert(
       () {
-        if (projectId == 'YOUR-PROJECT-ID') {
-          throw ArgumentError.value(
-            projectId,
-            'projectId',
-            'It seems like you forgot to add the projectId from your '
-                'Wiredash console in your Wiredash widget.',
-          );
-        }
-
-        if (secret == 'YOUR-SECRET') {
-          throw ArgumentError.value(
-            secret,
-            'secret',
-            'It seems like you forgot to add the secret from your Wiredash '
-                'console in your Wiredash widget.',
-          );
-        }
+        // if (projectId == 'YOUR-PROJECT-ID') {
+        //   throw ArgumentError.value(
+        //     projectId,
+        //     'projectId',
+        //     'It seems like you forgot to add the projectId from your '
+        //         'Wiredash console in your Wiredash widget.',
+        //   );
+        // }
+        //
+        // if (secret == 'YOUR-SECRET') {
+        //   throw ArgumentError.value(
+        //     secret,
+        //     'secret',
+        //     'It seems like you forgot to add the secret from your Wiredash '
+        //         'console in your Wiredash widget.',
+        //   );
+        // }
 
         return true;
       }(),

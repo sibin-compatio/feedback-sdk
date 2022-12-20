@@ -12,7 +12,7 @@ import 'package:wiredash/src/core/network/wiredash_api.dart';
 import 'package:wiredash/src/core/project_credential_validator.dart';
 import 'package:wiredash/src/core/services/streampod.dart';
 import 'package:wiredash/src/core/sync/app_telemetry_job.dart';
-import 'package:wiredash/src/core/sync/ping_job.dart';
+// import 'package:wiredash/src/core/sync/ping_job.dart';
 import 'package:wiredash/src/core/sync/sync_engine.dart';
 import 'package:wiredash/src/core/sync/sync_feedback_job.dart';
 import 'package:wiredash/src/core/telemetry/app_telemetry.dart';
@@ -201,13 +201,13 @@ void _setupServices(WiredashServices sl) {
     (locator) {
       final engine = SyncEngine();
 
-      engine.addJob(
-        'ping',
-        PingJob(
-          apiProvider: locator.get,
-          sharedPreferencesProvider: SharedPreferences.getInstance,
-        ),
-      );
+      // engine.addJob(
+      //   'ping',
+      //   PingJob(
+      //     apiProvider: locator.get,
+      //     sharedPreferencesProvider: SharedPreferences.getInstance,
+      //   ),
+      // );
       engine.addJob(
         'app-telemetry',
         AppTelemetryJob(

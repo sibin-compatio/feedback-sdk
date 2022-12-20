@@ -30,7 +30,7 @@ class WiredashApi {
   final String _secret;
   final Future<String> Function() _deviceIdProvider;
 
-  static const String _host = 'https://api.wiredash.io/sdk';
+  // static const String _host = 'https://api.wiredash.io/sdk';
   // static const String _host = 'https://api.wiredash.dev/sdk';
 
   /// Uploads a attachment to the Wiredash hosting service
@@ -42,35 +42,36 @@ class WiredashApi {
     String? filename,
     MediaType? contentType,
   }) async {
-    final uri = Uri.parse('$_host/uploadAttachment');
+    // final uri = Uri.parse('$_host/uploadAttachment');
+    //
+    // final String mappedType;
+    // switch (type) {
+    //   case AttachmentType.screenshot:
+    //     mappedType = 'screenshot';
+    //     break;
+    // }
+    //
+    // final req = MultipartRequest('POST', uri)
+    //   ..files.add(
+    //     MultipartFile.fromBytes(
+    //       'file',
+    //       screenshot,
+    //       filename: filename,
+    //       contentType: contentType,
+    //     ),
+    //   )
+    //   ..fields.addAll({
+    //     'type': mappedType,
+    //   });
+    //
+    // final response = await _send(req);
 
-    final String mappedType;
-    switch (type) {
-      case AttachmentType.screenshot:
-        mappedType = 'screenshot';
-        break;
-    }
-
-    final req = MultipartRequest('POST', uri)
-      ..files.add(
-        MultipartFile.fromBytes(
-          'file',
-          screenshot,
-          filename: filename,
-          contentType: contentType,
-        ),
-      )
-      ..fields.addAll({
-        'type': mappedType,
-      });
-
-    final response = await _send(req);
-
-    if (response.statusCode == 200) {
-      final map = jsonDecode(response.body) as Map<String, dynamic>;
-      return AttachmentId(map['id'] as String);
-    }
-    _parseResponseForErrors(response);
+    // if (response.statusCode == 200) {
+    //   final map = jsonDecode(response.body) as Map<String, dynamic>;
+    //   return AttachmentId(map['id'] as String);
+      return AttachmentId('abc' as String);
+    // }
+    // _parseResponseForErrors(response);
   }
 
   /// Reports a feedback
@@ -79,46 +80,47 @@ class WiredashApi {
   Future<void> sendFeedback(
     PersistedFeedbackItem feedback,
   ) async {
-    final uri = Uri.parse('$_host/sendFeedback');
-    final Request request = Request('POST', uri);
-    request.headers['Content-Type'] = 'application/json';
-
-    final args = feedback.toFeedbackBody();
-    request.body = jsonEncode(args);
-
-    final response = await _send(request);
-    if (response.statusCode == 200) {
-      // success 🎉
-      return;
-    }
-    _parseResponseForErrors(response);
+    // final uri = Uri.parse('$_host/sendFeedback');
+    // final Request request = Request('POST', uri);
+    // request.headers['Content-Type'] = 'application/json';
+    //
+    // final args = feedback.toFeedbackBody();
+    // request.body = jsonEncode(args);
+    //
+    // final response = await _send(request);
+    // if (response.statusCode == 200) {
+    //   // success 🎉
+    //   return;
+    // }
+    // _parseResponseForErrors(response);
   }
 
   /// Submits score of the promoter score survey
   Future<void> sendPromoterScore(PromoterScoreRequestBody body) async {
-    final uri = Uri.parse('$_host/sendPromoterScore');
-    final Request request = Request('POST', uri);
-    request.headers['Content-Type'] = 'application/json';
-
-    final args = body.toJson();
-    request.body = jsonEncode(args);
-
-    final response = await _send(request);
-    if (response.statusCode == 200) {
-      // success 🎉
-      return;
-    }
-    _parseResponseForErrors(response);
+    // final uri = Uri.parse('$_host/sendPromoterScore');
+    // final Request request = Request('POST', uri);
+    // request.headers['Content-Type'] = 'application/json';
+    //
+    // final args = body.toJson();
+    // request.body = jsonEncode(args);
+    //
+    // final response = await _send(request);
+    // if (response.statusCode == 200) {
+    //   // success 🎉
+    //   return;
+    // }
+    // _parseResponseForErrors(response);
   }
 
   Future<PingResponse> ping() async {
-    final uri = Uri.parse('$_host/ping');
-    final Request request = Request('POST', uri);
-    final response = await _send(request);
-    if (response.statusCode == 200) {
-      return PingResponse();
-    }
-    _parseResponseForErrors(response);
+    // final uri = Uri.parse('$_host/ping');
+    // final Request request = Request('POST', uri);
+    // final response = await _send(request);
+    // if (response.statusCode == 200) {
+    //   return PingResponse();
+    // }
+    // _parseResponseForErrors(response);
+    return PingResponse();
   }
 
   /// Sends a [BaseRequest] after attaching HTTP headers
